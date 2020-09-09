@@ -1,0 +1,33 @@
+body {
+  margin: 0px;
+  overflow: hidden;
+  text-align: center;
+}
+
+#root {
+  margin: 100px;
+}
+
+.sphere {
+  fill: #4242e4;
+}
+
+.state {
+  stroke: black;
+  stroke-width: 0.5px;
+}
+
+.state:hover {
+  fill: red;
+}
+
+.tick text {
+  font-size: 1em;
+  fill: black;
+  font-family: sans-serif;
+}
+
+.tick circle {
+  stroke: black;
+  stroke-opacity: 0.5;
+}
