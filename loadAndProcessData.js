@@ -1,6 +1,5 @@
 import { feature } from 'topojson';
 import { tsv, json } from 'd3';
-import { getPopPerCap } from './airtableClient';
 
 export const loadAndProcessData = (render =>
   json('https://cdn.jsdelivr.net/npm/us-atlas@3/states-albers-10m.json')

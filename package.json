@@ -4,6 +4,10 @@
   },
   "devDependencies": {
     "@rollup/plugin-buble": "^0.21.3",
+    "@rollup/plugin-node-resolve": "^9.0.0",
     "rollup": "latest"
+  },
+  "dependencies": {
+    "d3-svg-legend": "^2.25.6"
   }
 }

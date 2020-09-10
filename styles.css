@@ -4,10 +4,6 @@ body {
   text-align: center;
 }
 
-#root {
-  margin: 100px;
-}
-
 .sphere {
   fill: #4242e4;
 }
@@ -30,4 +26,22 @@ body {
 .tick circle {
   stroke: black;
   stroke-opacity: 0.5;
+}
+
+
+.legend {
+  background-color: #fff;
+  width: 300px;
+  height: 60px;
+  border: 1px solid #bbb;
+  margin: 10px;
+}
+
+#quantileLegend .colorlegend-labels {
+  font-size: 11px;
+  fill: black;
+}
+
+#us-map {
+  border: 2px solid #b2b2b2;
 }
