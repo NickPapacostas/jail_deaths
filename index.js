@@ -3,6 +3,7 @@ import {
   geoAlbersUsa,
   geoPath,
   zoom,
+  mouse,
   event,
   scaleQuantize,
   scaleThreshold,
@@ -15,16 +16,12 @@ import { loadAndProcessData } from './loadAndProcessData';
 
 const colorScale = scaleQuantize().domain([1, 500]).range(schemeReds[9])
 const svg = select('svg');
-
 const pathGenerator = geoPath()
-
 const g = svg.append('g');
 
 svg.call(zoom().on('zoom', () => {
   g.attr('transform', event.transform);
 }));
-
-loadAndProcessData(render)
 
 const choroplethColor = (d, states, data) => {
   let stateData = data.filter((r) => r.state == d.properties.name)[0]
@@ -36,6 +33,9 @@ const choroplethColor = (d, states, data) => {
   return colorScale(d.jailPopPerCap)
 }
 
+const stateClick = (d) => {
+  console.log('clicked', d)
+}
 
 function render(states, jailPopPerCap) {
   g.selectAll('path').data(states.features)
@@ -43,4 +43,7 @@ function render(states, jailPopPerCap) {
     .attr('class', 'state')
     .attr('d', pathGenerator)
     .attr('fill', (d) => choroplethColor(d, states, jailPopPerCap))
+  .on("click", stateClick)
 }
+
+loadAndProcessData(render)

@@ -25,16 +25,12 @@
 
   var colorScale = d3.scaleQuantize().domain([1, 500]).range(d3.schemeReds[9]);
   var svg = d3.select('svg');
-
   var pathGenerator = d3.geoPath();
-
   var g = svg.append('g');
 
   svg.call(d3.zoom().on('zoom', function () {
     g.attr('transform', d3.event.transform);
   }));
-
-  loadAndProcessData(render);
 
   var choroplethColor = function (d, states, data) {
     var stateData = data.filter(function (r) { return r.state == d.properties.name; })[0];
@@ -46,14 +42,20 @@
     return colorScale(d.jailPopPerCap)
   };
 
+  var stateClick = function (d) {
+    console.log('clicked', d);
+  };
 
   function render(states, jailPopPerCap) {
     g.selectAll('path').data(states.features)
     .enter().append('path')
       .attr('class', 'state')
       .attr('d', pathGenerator)
-      .attr('fill', function (d) { return choroplethColor(d, states, jailPopPerCap); });
+      .attr('fill', function (d) { return choroplethColor(d, states, jailPopPerCap); })
+    .on("click", stateClick);
   }
+
+  loadAndProcessData(render);
 
 }(d3, topojson));
 //# sourceMappingURL=bundle.js.map
