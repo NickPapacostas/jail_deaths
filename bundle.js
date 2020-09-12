@@ -33,7 +33,7 @@
   var pathGenerator = d3.geoPath();
   var g = svg.append('g');
 
-  svg.call(d3.zoom().on('zoom', function () {
+  svg.call(d3.zoom().scaleExtent([.6,3]).on('zoom', function () {
     g.attr('transform', d3.event.transform);
   }));
 

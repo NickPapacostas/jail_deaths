@@ -20,7 +20,7 @@ const svg = select('svg');
 const pathGenerator = geoPath()
 const g = svg.append('g');
 
-svg.call(zoom().on('zoom', () => {
+svg.call(zoom().scaleExtent([.6,3]).on('zoom', () => {
   g.attr('transform', event.transform);
 }))
 
