@@ -20,9 +20,11 @@ const svg = select('svg');
 const pathGenerator = geoPath()
 const g = svg.append('g');
 
-svg.call(zoom().scaleExtent([.6,3]).on('zoom', () => {
+const zoomBehavior = zoom().scaleExtent([.6,3]).on('zoom', () => {
   g.attr('transform', event.transform);
-}))
+})
+
+svg.call(zoomBehavior)
 
 const tooltip = select("#map-view").append("div")
     .attr("class", "tooltip")
@@ -83,11 +85,6 @@ function render(states, jailPopPerCap) {
           .style("opacity", .9);
       tooltip.html(stateHTML(d))
     })
-    // .on("mouseout", function(d) {
-    //     tooltip.transition()
-    //         .duration(500)
-    //         .style("opacity", 0);
-    // });
 
   var marks = [{long: -94.3, lat: 38}];
   svg.append("g")

@@ -33,9 +33,11 @@
   var pathGenerator = d3.geoPath();
   var g = svg.append('g');
 
-  svg.call(d3.zoom().scaleExtent([.6,3]).on('zoom', function () {
+  var zoomBehavior = d3.zoom().scaleExtent([.6,3]).on('zoom', function () {
     g.attr('transform', d3.event.transform);
-  }));
+  });
+
+  svg.call(zoomBehavior);
 
   var tooltip = d3.select("#map-view").append("div")
       .attr("class", "tooltip")
@@ -69,11 +71,6 @@
             .style("opacity", .9);
         tooltip.html(stateHTML(d));
       });
-      // .on("mouseout", function(d) {
-      //     tooltip.transition()
-      //         .duration(500)
-      //         .style("opacity", 0);
-      // });
 
     var marks = [{long: -94.3, lat: 38}];
     svg.append("g")
