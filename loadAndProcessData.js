@@ -13,7 +13,12 @@ export const loadAndProcessData = (render =>
       }).then( response => {
         response.json().then( jailPopPerCap => {
           const populationData = jailPopPerCap.records.map( (r) => {
-            return {state: r.fields.State, jailPop: r.fields["Jail Population per capita"]}
+            return {
+              state: r.fields.State,
+              jailPop: r.fields["Jail Population per capita"],
+              avgDailyPop: r.fields["Average number of people in jail"],
+              mortalityRate: r.fields["Mortality Rate"]
+            }
           })
 
           render(states, populationData)

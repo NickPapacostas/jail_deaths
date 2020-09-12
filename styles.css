@@ -15,7 +15,7 @@ body {
 }
 
 .state:hover {
-  opacity: 1;
+  stroke-width: 4px;
 }
 
 .tick text {
@@ -45,4 +45,61 @@ body {
 
 #us-map {
   border: 2px solid #b2b2b2;
+}
+
+#us-map-container {
+  padding-left: 5%;
+}
+
+#map-view {
+  display: flex;
+  min-width: 100%;
+  max-width: 100%;
+}
+
+.tooltip {
+  padding-left: 75px;
+}
+
+.state-stat {
+  font-size: .9em;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.button-border {
+  margin-top: 30px;
+  border: 2px solid #b2b2b2;
+}
+
+
+.profile {
+  border: 3px solid #0366ff4f;
+  padding: 15px;
+}
+
+.profile-name {
+  font-size: 1.2em;
+}
+
+.profile-content {
+  text-align: left;
+  padding: 5px;
+}
+
+header {
+  margin-bottom: 30px;
+}
+
+.modal-header-color {
+  background-color: #535e5d;
+  color: white;
+}
+
+.profile-modal-content {
+  padding: 30px;
+}
+
+.profile-story {
+  padding-top: 40px;
 }
